@@ -40,8 +40,6 @@ public class ArcImageView extends android.support.v7.widget.AppCompatImageView {
     }
 
     private void init(Context context, AttributeSet attrs) {
-        // 禁止硬件加速，硬件加速会有一些问题，这里禁用掉 不设置这个则实现不了锯齿状态
-//        setLayerType(LAYER_TYPE_SOFTWARE, null);
         mPath = new Path();
         mPaint = new Paint();
         if (Build.VERSION.SDK_INT < 18) {
@@ -66,7 +64,6 @@ public class ArcImageView extends android.support.v7.widget.AppCompatImageView {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         createPaintPath();
-//        canvas.setDrawFilter(new PaintFlagsDrawFilter(0, Paint.ANTI_ALIAS_FLAG|Paint.FILTER_BITMAP_FLAG));
         mPaint.setColor(Color.WHITE);
         mPaint.setAntiAlias(true);//抗锯齿
         mPaint.setDither(true);//防抖动
