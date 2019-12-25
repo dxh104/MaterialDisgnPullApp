@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinatorLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    tools:context=".MainActivity">
+
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:elevation="0dp"
+        app:layout_behavior="@string/appbar_zoom_behavior">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/collapsingToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:minHeight="?actionBarSize"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <com.example.administer.materialdisgnpullapp3.widget.DisInterceptNestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipChildren="false"
+                android:clipToPadding="false">
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/constraintCollaps"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#fff"
+                    android:minHeight="340dp">
+
+                    <com.example.administer.materialdisgnpullapp3.widget.ArcImageView
+                        android:id="@+id/iv_scale"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:layout_marginBottom="40dp"
+                        android:scaleType="centerCrop"
+                        android:src="@mipmap/bg"
+                        app:bottom_radius="24dp"
+                        app:layout_constraintBottom_toTopOf="@id/constraintPersonInfo"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:line_width="0dp" />
+
+
+                    <android.support.constraint.ConstraintLayout
+                        android:id="@+id/constraintPersonInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:background="#66f"
+                        app:layout_constraintBottom_toBottomOf="parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="个人信息区" />
+                    </android.support.constraint.ConstraintLayout>
+
+                    <ImageView
+                        android:id="@+id/iv_head"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:background="@mipmap/ic_launcher"
+                        app:layout_constraintBottom_toTopOf="@+id/constraintPersonInfo"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                </android.support.constraint.ConstraintLayout>
+            </com.example.administer.materialdisgnpullapp3.widget.DisInterceptNestedScrollView>
+
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                app:layout_collapseMode="pin" />
+
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/constraintTitle"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                app:layout_collapseMode="pin">
+
+                <com.example.administer.materialdisgnpullapp3.widget.DisInterceptNestedScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="标题区"
+                            android:textColor="#666"
+                            android:textSize="26sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </android.support.constraint.ConstraintLayout>
+
+
+                </com.example.administer.materialdisgnpullapp3.widget.DisInterceptNestedScrollView>
+
+            </android.support.constraint.ConstraintLayout>
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+
+        <com.example.administer.materialdisgnpullapp3.widget.DisInterceptNestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/constraintNoCollaps"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp"
+                    android:background="#fff"
+                    android:gravity="center"
+                    android:text="非折叠区"
+                    android:textColor="#f00"
+                    android:textSize="26sp" />
+            </android.support.constraint.ConstraintLayout>
+        </com.example.administer.materialdisgnpullapp3.widget.DisInterceptNestedScrollView>
+
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"></android.support.v7.widget.RecyclerView>
+
+
+</android.support.design.widget.CoordinatorLayout>

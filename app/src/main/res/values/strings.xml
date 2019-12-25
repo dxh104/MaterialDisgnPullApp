@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MaterialDisgnPullApp3</string>
+    <string name="appbar_zoom_behavior">com.example.administer.materialdisgnpullapp3.behavior.AppbarZoomBehavior</string>
+
+</resources>
