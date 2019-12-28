@@ -25,6 +25,7 @@ public class DisInterceptNestedScrollView extends NestedScrollView {
     public boolean dispatchTouchEvent(MotionEvent ev) {
         if (ev.getAction() == MotionEvent.ACTION_DOWN) {
             getParent().requestDisallowInterceptTouchEvent(true);//请求父ViewGroup不允许拦截子View事件
+            requestDisallowInterceptTouchEvent(true);
         }
         return super.dispatchTouchEvent(ev);
     }

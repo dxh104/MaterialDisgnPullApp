@@ -122,7 +122,7 @@ public class AppbarZoomBehavior extends AppBarLayout.Behavior {
     }
 
 
-    private static final float MAX_ZOOM_HEIGHT = 3000;//放大2倍的阻力，下拉最大高度到3000像素,放大至2倍
+    private static final float MAX_ZOOM_HEIGHT = 2000;//放大2倍的阻力，下拉最大高度到3000像素,放大至2倍
     private float mTotalDy;//手指在Y轴滑动的总距离
     private float mScaleValue;//图片缩放比例
     private int mAppBarLastBottom;//Appbar的最近一次的底部距离
@@ -170,7 +170,7 @@ public class AppbarZoomBehavior extends AppBarLayout.Behavior {
 
 
     private int duration;//动画时间 由速率决定
-    private int rate = 1500;//决定速度 rate代表放大至两倍收回的要消耗的时间(值越大速度越慢)
+    private int rate = 600;//决定速度 rate代表放大至两倍收回的要消耗的时间(值越大速度越慢)
 
     /**
      * 滑动停止的时候，恢复AppbarLayout、ImageView的原始状态
@@ -291,5 +291,13 @@ public class AppbarZoomBehavior extends AppBarLayout.Behavior {
             return;
         }
     }
-
+    //回收valueAnimator
+    public void recycle() {
+        if (valueAnimator != null) {
+            valueAnimator.cancel();
+            valueAnimator.removeAllUpdateListeners();
+            valueAnimator.removeAllListeners();
+            valueAnimator=null;
+        }
+    }
 }
